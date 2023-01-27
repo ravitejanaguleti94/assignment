@@ -1,0 +1,36 @@
+{% extends 'includes/base.html' %}
+
+{% block body %}
+<div class="center">
+    <table style="width:100%">
+        <tr>
+            <th>Current Token No:</th>
+            <th>Next Token No:</th>
+            <th>Approximate Waiting Time :</th>
+        </tr>
+        <td>{{doctor.current_token}}</td>
+        <td>{{doctor.next_token}}</td>
+        <td>avg 10 mins for consultation</td>
+        </tr>
+    </table>
+    <br> <br>
+    <div class="row text-center">
+        <div class="col">
+            <form action="{% url 'token-generation' doctor.id %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-success">Confirm to Book Appointment</button>
+            </form>
+        </div>
+        <div class="col">
+            <form action="{% url 'doctor-details' doctor.department.id %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-dark">Go back</button>
+            </form>
+        </div>
+    </div>
+
+    </h4>
+</div>
+
+
+{% endblock %}

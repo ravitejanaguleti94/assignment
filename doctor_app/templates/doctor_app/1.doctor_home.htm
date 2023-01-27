@@ -1,0 +1,27 @@
+{% extends 'doctor_app/includes/base_doctor.html' %}
+
+{% block body %}
+
+<h4 class="center">Departments</h4>
+{% for department in departments %}
+<div class="center">
+<ul class="align-center">
+    <li class=" gdlr-core-skin-divider clearfix" style="margin-bottom: 22px ;">
+        <a href="{% url 'doctor-app-details' department.id %}" style="text-decoration:none;" ><span
+                class="gdlr-core-icon-list-icon-wrap gdlr-core-left" style="margin-top: 5px ;"><i
+                class="gdlr-core-icon-list-icon fa fa-hand-o-right"
+                style="color: #003377 ;font-size: 22px ;width: 22px ;"></i></span>
+            <div class="gdlr-core-icon-list-content-wrap"><span class="gdlr-core-icon-list-content"
+                                                                style="font-size: 17px ;">{{department.name}}</span></div>
+        </a></li>
+</ul>
+</div>
+{% endfor %}
+
+
+</div>
+
+
+
+
+{% endblock %}

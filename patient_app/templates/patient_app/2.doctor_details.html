@@ -1,0 +1,24 @@
+{% extends 'includes/base.html' %}
+
+{% block body %}
+<h4 class="center">Doctors</h4>
+{% for doctor in doctors %}
+<div class="center">
+<ul class="align-center">
+    <li class=" gdlr-core-skin-divider clearfix" style="margin-bottom: 22px ;">
+        <a href="{% url 'doctor-tokens' doctor.id %}" style="text-decoration: none" ><span
+                class="gdlr-core-icon-list-icon-wrap gdlr-core-left" style="margin-top: 5px ;"><i
+                class="gdlr-core-icon-list-icon fa fa-hand-o-right"
+                style="color: #003377 ;font-size: 22px ;width: 22px ;"></i></span>
+            <div class="gdlr-core-icon-list-content-wrap"><h4><span class="gdlr-core-icon-list-content" style="font-size: 17px ;">{{doctor.doctor_name|capfirst}} </span></div></h4>
+        </a></li>
+</ul>
+</div>
+
+{% endfor %}
+
+
+
+
+
+{% endblock %}

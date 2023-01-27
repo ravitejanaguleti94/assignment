@@ -1,0 +1,45 @@
+{% extends 'doctor_app/includes/base_doctor.html' %}
+
+{% block body %}
+
+
+<div class="text-center m-25">
+
+    <h2>Hello <strong> Dr. {{doctor.doctor_name|capfirst}},</strong></h2> <br>
+    <div class="row">
+        <div class="col">
+            <div class="card text mb-3" style="max-width: 50rem;">
+                <div class="card-header">Tokens</div>
+                <div class="card-body">
+                    <p class="card-text" >{{doctor.tokens}} <br></p>
+                </div>
+                <div class="refresh">
+                    <button type="button" class="btn btn-danger"><a class="tag"
+                                                                    href="{% url 'doctor-signin' doctor.id %}" style="text-decoration:none;">Refresh</a>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+                    <div class="col">
+                <h4> Current Token = {{doctor.current_token}} </h4>  <br>
+                <h4> Next Token = {{doctor.next_token}} </h4> <br>
+                <form action="{% url 'call-next-patient' doctor.id %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary">Call the Next Patient</button>
+
+                </form>
+            </div>
+    </div>
+
+
+    <form action="{% url 'reset' doctor.id %}" method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-warning">Reset all Tokens</button>
+    </form>
+
+
+</div>
+
+
+{% endblock %}

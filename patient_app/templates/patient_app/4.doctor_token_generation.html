@@ -1,0 +1,32 @@
+{% extends 'includes/base.html' %}
+
+{% block body %}
+<div class="center">
+ <h5>
+ <table>
+  <tr>
+   <th>Doctor Name :</th>
+   <th>{{doctor.doctor_name|capfirst}}</th>
+  </tr>
+  <tr>
+   <th>Department Name :</th>
+   <th>{{doctor.department.name}}</th>
+  </tr>
+  <tr>
+   <th>Token Number :</th>
+   <th> {{generated_token}} </th>
+  </tr>
+ </table>
+  </h5>
+    <br>
+
+   <br>
+
+ <br>
+
+
+</div>
+
+
+
+{% endblock %}
